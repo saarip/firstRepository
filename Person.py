@@ -1,32 +1,30 @@
 class Person:
-    def __init__(self, city, address, phone_number):
-        self._city = city
-        self._address = address
-        self._phone_number = phone_number
+
+    def __init__(self, name: str, age: int):
+        self.__name = name
+        self.__age = age
 
     @property
-    def city(self, _default = None):
-        return self._city
+    def name(self):
+        return self.__name
 
-    @city.setter
-    def city(self, value):
-        self._city = value
-
-    @property
-    def address(self):
-        return self._address
-
-    @address.setter
-    def address(self, value):
-        self._address = value
+    @name.setter
+    def name(self, name):
+        self.__name = name
 
     @property
-    def phone_number(self, _default=None):
-        return self._phone_number
+    def age(self):
+        return self.__age
 
-    @phone_number.setter
-    def phone_number(self, value):
-        self._phone_number = value
+    @age.setter
+    def age(self, age):
+        self.__age = age
 
     def __str__(self):
-        return f'Address: {self._address}\nCity: {self._city}\nPhone: {self._phone_number}'
+        return f"Name: {self.__name}, age: {self.__age}"
+
+if __name__ == "__main__":
+    somePerson = Person("Steve Yzerman", 55)
+    print(somePerson.name)
+    print(somePerson.age)
+    print(somePerson)
